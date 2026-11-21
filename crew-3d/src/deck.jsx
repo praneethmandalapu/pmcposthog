@@ -57,14 +57,14 @@ export const SLIDES = [
         <div className="dk-meta dim">Praneeth · Vinesh · Jasim</div>
       </div>
     ),
-    notes: { say: 'Introduce ourselves. PostHog has $3.0M for one feature in 2027. We picked Crew. Tell them we will show a demo and then go through the numbers, including the parts that are not in our favor.', qa: [] },
+    notes: { say: 'Say hi. PostHog has $3.0M and one slot in 2027, and we picked Crew. Promise a demo, then the numbers. That includes the ones that don\'t help us.', qa: [] },
   },
   /* 2 */
   {
     id: 'decision',
     body: () => (
       <>
-        <T>Our recommendation: build Crew.</T>
+        <T>We think PostHog should build Crew.</T>
         <div className="dk-cards3">
           {[
             ['Preflight', 'Engineers with self-driving on', 'Breakthrough', '9 months', '$2.4M'],
@@ -80,11 +80,11 @@ export const SLIDES = [
             </div>
           ))}
         </div>
-        <p className="dk-lead">We're asking for the <b>$2.0M</b> to build Crew. The <b>$0.8M</b> launch money only gets spent if the pilot passes.</p>
+        <p className="dk-lead">We want the <b>$2.0M</b> build budget. The <b>$0.8M</b> for launch? Only if the pilot passes.</p>
         <Foot step="The decision" src="Tables B1, C1" />
       </>
     ),
-    notes: { say: 'These are the three options from the case. We want the $2.0M build budget for Crew. The case already has a pilot step, so we only spend the launch money if the pilot passes.', qa: [['Why not split the money across two features?', 'The case says leadership will fund one. What we can do is propose a small test of another feature, and we do that for Budget Guard on slide 15.']] },
+    notes: { say: 'Three options, straight from the case. We want the $2.0M build budget for Crew. The case has a pilot step, so the $0.8M for launch only gets spent if the pilot passes.', qa: [['Why not split the money across two features?', 'The case says leadership funds one. What we can do is propose a small test of another feature, and we do that for Budget Guard on slide 15.']] },
   },
   /* 3 */
   {
@@ -107,16 +107,13 @@ export const SLIDES = [
             <div className="dk-big">≈8×</div>
             <p>Per weekly user, an engineer creates about 8 times as many experiments as someone in PM, support or marketing.</p>
             <p className="dk-calc">(83% ÷ 48%) ÷ (8% ÷ 38%) = 1.73 ÷ 0.21 ≈ 8.2</p>
-            <p>Also, half of PostHog AI users are not engineers or founders. <Cite>Appendix A</Cite></p>
+            <p>And half of PostHog AI users aren't engineers or founders. <Cite>Appendix A</Cite></p>
           </div>
         </div>
         <Foot step="Pick it · 20 pts" src="Table D4 (PMs and designers 17% + 6%, marketing, support and data 21% + 2%); Appendix A" />
       </>
     ),
-    notes: {
-      say: 'The 38% and the 8% each come from adding two rows of Table D4. For users it is 17 plus 21, and for experiments it is 6 plus 2. We left founders out because they create 9% of experiments with 14% of users, so they are close to even.',
-      qa: [['Why not count founders as non-engineers too?', 'Founders are close to even on this table, 14% of users and 9% of experiments. The gap is in the PM, support and marketing rows.'], ['How did you get 8x?', 'Engineers are 83% of experiments and 48% of users, so 83 divided by 48 is 1.73. The other roles are 8 divided by 38, which is 0.21. 1.73 divided by 0.21 is about 8.']],
-    },
+    notes: { say: 'The 38% and the 8% both come from adding two rows of Table D4. Users: 17 plus 21. Experiments: 6 plus 2. Founders are out, because they make 9% of experiments with 14% of users. That\'s close to even, so they\'re not the gap.', qa: [['Why not count founders as non-engineers too?', 'Founders are close to even on that table, 14% of users and 9% of experiments. The gap sits in the PM, support and marketing rows.'], ['How did you get 8x?', 'Engineers are 83% of experiments and 48% of users, so 83 divided by 48 is 1.73. The other roles are 8 divided by 38, which is 0.21. 1.73 over 0.21 is about 8.']] },
   },
   /* Evidence: D4 */
   {
@@ -143,7 +140,7 @@ export const SLIDES = [
         <Foot step="Evidence" src="Highlighted rows and the sums are our annotations; the table is copied from the packet" />
       </>
     ),
-    notes: { say: 'Show this if a judge asks where the 38% and the 8% come from. The two highlighted rows are the PM and the marketing, support and data rows. We add them up. The founders row is left out on purpose.', qa: [['Is the usage-not-seats point really in the packet?', 'Yes, it is the note under Table D4: PostHog charges for usage and not for seats.']] },
+    notes: { say: 'Pull this up if a judge asks where the 38% and the 8% come from. The two highlighted rows are the PM row and the marketing, support and data row. Add them up. Founders stay out on purpose.', qa: [['Is the usage-not-seats point really in the packet?', 'Yes. It\'s the note under Table D4: PostHog charges for usage and not for seats.']] },
   },
   /* 4 */
   {
@@ -155,11 +152,11 @@ export const SLIDES = [
           <div className="dk-panel">
             <div className="dk-h">What they did</div>
             <ol className="dk-steps">
-              <li>Asked PostHog AI and got a chart in a minute <Cite>E2.1</Cite></li>
-              <li>Didn't use it, because three events sound like "signup" <Cite>E2.2</Cite></li>
-              <li>Messaged an engineer, who answered on Monday <Cite>E2.2</Cite></li>
-              <li>Posts the chart in Slack and asks "is this right?" most weeks <Cite>E2.3</Cite></li>
-              <li>Has never set up an experiment. They file a ticket and it takes about a week <Cite>E2.4</Cite></li>
+              <li>Got a chart from PostHog AI in a minute <Cite>E2.1</Cite></li>
+              <li>Didn't trust it. Three events sound like "signup" <Cite>E2.2</Cite></li>
+              <li>Messaged an engineer. The answer came Monday <Cite>E2.2</Cite></li>
+              <li>Does this most weeks, then posts the chart in Slack to ask "is this right?" <Cite>E2.3</Cite></li>
+              <li>Never set up an experiment. Files a ticket and waits about a week <Cite>E2.4</Cite></li>
             </ol>
           </div>
           <div className="dk-panel">
@@ -175,7 +172,7 @@ export const SLIDES = [
         <Foot step="Pick it · 20 pts" src="Interview E2: PM at a 150-person software company" />
       </>
     ),
-    notes: { say: 'We split what the PM did from what they said. They did the same thing every week: get a chart, not trust it, ask an engineer, wait. They said they would probably run experiments themselves but they are nervous about production. So Crew has two jobs, making the answer trustworthy and making the launch safe.', qa: [['Is one interview enough?', 'No, it only shows how it happens. The population evidence is Table D4: 38% of users and 8% of experiments.']] },
+    notes: { say: 'Keep did and said apart. The PM did the same thing every week: got a chart, didn\'t trust it, asked an engineer, waited. What they said was softer. They\'d probably run experiments themselves, but they\'re nervous about production. That gives Crew two jobs. Make the answer trustworthy. Make the launch safe.', qa: [['Is one interview enough?', 'No. It shows how it happens. Table D4 is the population evidence: 38% of users, 8% of experiments.']] },
   },
   /* Evidence: E2 */
   {
@@ -193,7 +190,7 @@ export const SLIDES = [
         <Foot step="Evidence" src="Appendix E, interview E2. Highlights and the did / said tags are ours" />
       </>
     ),
-    notes: { say: 'These are direct quotes from the packet, with the exchange numbers. The first four are things the PM did. The last one is what they said they would do, and it is hedged.', qa: [['Is this just one person?', 'Yes, one interview. We use it for the mechanism and use Table D4 for the numbers.']] },
+    notes: { say: 'Direct quotes from the packet, with exchange numbers. The first four are things the PM did. The last one is what they said they\'d do, and it\'s hedged.', qa: [['Is this just one person?', 'One interview, yes. We use it for the mechanism and Table D4 for the numbers.']] },
   },
   /* 5 */
   {
@@ -203,9 +200,9 @@ export const SLIDES = [
         <T>What Crew does.</T>
         <div className="dk-cards3">
           {[
-            ['1', 'Ask', 'You ask a question in plain English. The answer says which event it used, shows an engineer\'s "verified" check, and lists the events it didn\'t use.'],
-            ['2', 'Launch', 'One click starts an experiment for 10% of users behind a feature flag. It stops on its own if errors go up.'],
-            ['3', 'Inform', 'The engineer gets a notification instead of a ticket. Results show up in Crew once they\'re significant.'],
+            ['1', 'Ask', 'Ask a question in plain English. The answer names the event it used, shows an engineer\'s "verified" check, and lists the events it skipped.'],
+            ['2', 'Launch', 'One click starts an experiment for 10% of users behind a feature flag. If errors go up, it stops itself.'],
+            ['3', 'Inform', 'The engineer gets a notification, not a ticket. Results land in Crew once they\'re significant.'],
           ].map(([n, h, p]) => (
             <div className="dk-card" key={n}><div className="dk-num">{n}</div><div className="dk-card-h">{h}</div><p>{p}</p></div>
           ))}
@@ -214,14 +211,14 @@ export const SLIDES = [
         <Foot step="Show it · 20 pts" src="The 10% rollout is a setting we chose, not data" />
       </>
     ),
-    notes: { say: 'Click "Open the live demo". It starts in click-through mode: step to the Crew screen, then click the launch button yourself. It takes under a minute. Press the Slides button to come back here.', qa: [['Is the 10% a statistic?', 'No, it is just the default rollout size in our prototype. All the data in the demo is sample data.'], ['Who verifies the event?', 'An engineer. In the demo it says "Verified by Vinesh (engineer)". The engineer stays involved, which matches PostHog\'s line that nothing ships without you.']] },
+    notes: { say: 'Click Open the live demo. It starts in click-through mode. Step to the Crew screen and click the launch button yourself. Under a minute. Hit the Slides button to come back.', qa: [['Is the 10% a statistic?', 'No. It\'s a default rollout size in our prototype. Everything in the demo is sample data.'], ['Who verifies the event?', 'An engineer. The demo says Verified by Vinesh (engineer). The engineer stays involved, which matches PostHog\'s line that nothing ships without you.']] },
   },
   /* 6 */
   {
     id: 'metric',
     body: () => (
       <>
-        <T>How we would know it's working.</T>
+        <T>How we'd know it's working.</T>
         <div className="dk-split">
           <div className="dk-panel dk-metric">
             <div className="dk-h">Experiments created by PMs, support and marketing</div>
@@ -238,7 +235,7 @@ export const SLIDES = [
         <Foot step="Pick it · 20 pts" src="Table D4; E2.4" />
       </>
     ),
-    notes: { say: 'Our main number is the share of experiments created by PMs, support and marketing. It is a share, so more traffic cannot inflate it. The 20% is a target we picked, about 40% of the way to parity. We are not forecasting it.', qa: [['Why 20% and not 38%?', 'Engineers will keep creating a lot of experiments, so full parity is not realistic. 20% is something we can test in a pilot.']] },
+    notes: { say: 'Our main number is the share of experiments PMs, support and marketing create. More traffic can\'t inflate a share. The 20% is a target we picked, about 40% of the way to parity. It isn\'t a forecast.', qa: [['Why 20% and not 38%?', 'Engineers will keep making plenty of experiments, so full parity isn\'t realistic. 20% is something a pilot can test.']] },
   },
   /* 7 */
   {
@@ -264,18 +261,18 @@ export const SLIDES = [
         <Foot step="Prove it · 30 pts" src="Table C1. A feature that fails its pilot is shelved, so it pays no launch cost and earns no payoff" />
       </>
     ),
-    notes: { say: 'We start from Finance\'s table without changing anything, and Crew comes out lowest. Say that directly. The next two slides are about which of Finance\'s assumptions we do not believe, which the brief asks for.', qa: [['Why show Crew losing first?', 'Table C1 is each proposer\'s claim, not fact. The brief asks us to correct assumptions and show the value again, so we do that for Crew and then apply the same check to the other two.'], ['How do you treat a failed pilot?', 'The feature is shelved. You don\'t pay the launch cost and you don\'t get a payoff. You only lose the build cost.']] },
+    notes: { say: 'Start from Finance\'s table, unchanged. Crew comes out last. Say so out loud. The next slides cover which of Finance\'s assumptions we don\'t believe, which is what the brief asks for.', qa: [['Why show Crew losing first?', 'Table C1 holds each proposer\'s claims, not facts. The brief wants us to correct assumptions and show the value again. We do it for Crew, then run the same check on the other two.'], ['How do you treat a failed pilot?', 'The feature gets shelved. No launch cost, no payoff. Only the build is lost.']] },
   },
   /* 8 */
   {
     id: 'challenge',
     body: () => (
       <>
-        <T>Finance's Crew payoff is 2,000 teams × $7,000 = $14M. We don't think that holds.</T>
+        <T>Finance says 2,000 teams will each spend $7,000 more. That's $14M, and we don't buy it.</T>
         <div className="dk-cards3">
           <div className="dk-card">
             <div className="dk-card-h">Pricing is by usage, not seats</div>
-            <p>Adding a person costs the team nothing, so more people using PostHog doesn't raise the bill. The extra $7,000 would have to come from more usage: AI credits, events, recordings.</p>
+            <p>A new person on the team costs nothing, since PostHog charges for usage. More users don't raise the bill. More events, recordings and AI credits do. That's where the $7,000 would have to come from.</p>
             <Cite>Table D4 note</Cite>
           </div>
           <div className="dk-card">
@@ -288,15 +285,15 @@ export const SLIDES = [
           </div>
           <div className="dk-card">
             <div className="dk-card-h">2,000 teams is a big share</div>
-            <p>That's 13% of all 15,000 paying teams, and 44% of the 4,500 mid-size and large teams (3,750 + 750), which are the only ones likely to add $7,000.</p>
+            <p>2,000 is 13% of all 15,000 paying teams. Against the 4,500 mid-size and large teams (3,750 + 750), the only ones likely to add $7,000, it's 44%.</p>
             <Cite>Table D3</Cite>
           </div>
         </div>
-        <p className="dk-lead">Mid-size and large teams are 30% of paying teams but 85% of ARR ($40M + $45M out of $100M), so they're who we're building for.</p>
+        <p className="dk-lead">Mid-size and large teams are 30% of paying teams and 85% of ARR ($40M + $45M of $100M). They're our customer.</p>
         <Foot step="Prove it · 30 pts" src="Tables D3, D4; Table C1 note" />
       </>
     ),
-    notes: { say: 'We have three reasons. The main one is the pricing note: seats are free, so Crew only makes money if people use more of the product. A technical judge will probably ask about this, so we bring it up ourselves.', qa: [['Then how does Crew make money?', 'From the usage PMs, support and marketing create: AI credits from their questions, and events and flag usage from the experiments they run. The pilot is designed to measure that.'], ['Why leave out small teams?', 'Small teams spend $1,430 a year on average. Adding $7,000 would be a 490% increase.']] },
+    notes: { say: 'Three reasons. The big one is the pricing note. Seats are free, so Crew only earns money if people use more of the product. A technical judge will probably ask about this. Bring it up first.', qa: [['Then how does Crew make money?', 'Through usage that PMs, support and marketing create. Their AI questions use credits. Their experiments create events and flag usage. The pilot is built to measure exactly that.'], ['Why leave out small teams?', 'They spend $1,430 a year on average. Adding $7,000 would be a 490% jump.']] },
   },
   /* Evidence: D3 + Finance note */
   {
@@ -322,7 +319,7 @@ export const SLIDES = [
         <Foot step="Evidence" src="The percentages in the right-hand column are our arithmetic: 7,000 ÷ 1,430, 7,000 ÷ 10,670, 7,000 ÷ 60,000" />
       </>
     ),
-    notes: { say: 'Table D3 is how we check Finance\'s $7,000. It is 490% of what a small team spends today, 66% for mid-size and 12% for large. The quote is Finance\'s own note under Table C1.', qa: [['Are you saying Crew should only target mid-size and large teams?', 'For the revenue case, yes. Small teams are 70% of teams but only 15% of ARR.']] },
+    notes: { say: 'Table D3 is how we check Finance\'s $7,000. For a small team that\'s 490% of today\'s spend. For mid-size it\'s 66%, and for large it\'s 12%. The quote is Finance\'s own note under Table C1.', qa: [['Are you saying Crew should only target mid-size and large teams?', 'For the revenue case, yes. Small teams are 70% of teams but only 15% of ARR.']] },
   },
   /* 9 */
   {
@@ -341,23 +338,23 @@ export const SLIDES = [
         </table>
         <div className="dk-math">
           Crew EV = 0.6 × [ 0.5 × H + 0.5 × 2 − 0.8 ] − 2.0, where H is the hit payoff. It equals zero at H = <b>$6.27M</b>, which is about 895 teams, or <b>19.9%</b> of 4,500.<br />
-          Finance's table leaves out churn. Each point of yearly churn we prevent on the $85M of mid-size and large ARR is worth $0.85M (1% × $85M). There's no churn data in the packet, so we're treating that as something to test, not counting it.
+          Finance's table skips churn. One point of yearly churn on the $85M of mid-size and large ARR is worth $0.85M (1% × $85M). The packet has no churn data, so we're not counting it. We'd test it.
         </div>
         <Foot step="Prove it · 30 pts" src="Tables C1, D3. The $7,000 is Finance's number; the adoption shares are our scenarios" />
       </>
     ),
-    notes: { say: 'Finance had $2.32M. If we only count the mid-size and large teams that could afford the extra spend, and assume 20% of them adopt, it comes out around zero. We are not hiding that. The pilot exists to find out whether 20% adoption and $7,000 are realistic.', qa: [['So why fund it?', 'The most we can lose is the $2.0M build, and that happens 40% of the time. The upside is bigger than the other two if it works, and there is a strategy argument that is not in the EV table (slide 19).'], ['Does Crew beat Budget Guard on EV?', 'No, not on Finance\'s numbers. Crew would need a hit payoff of about $16.3M to match Budget Guard\'s $3.02M. We are not claiming it does.']] },
+    notes: { say: 'Finance had $2.32M. Count only the mid-size and large teams that could afford the extra spend, assume 20% adopt, and it lands around zero. We\'re not hiding that. The pilot is there to find out whether 20% adoption and $7,000 are realistic.', qa: [['So why fund it?', 'The most we can lose is the $2.0M build, and that happens 40% of the time. If it works, the upside is bigger than the other two. And there\'s a strategy argument the EV table can\'t show (slide 19).'], ['Does Crew beat Budget Guard on EV?', 'No, not on Finance\'s numbers. Crew would need a hit payoff near $16.3M to match Budget Guard\'s $3.02M. We\'re not claiming it does.']] },
   },
   /* 10 */
   {
     id: 'preflight',
     body: () => (
       <>
-        <T>Preflight's payoff assumes more teams than have the feature turned on.</T>
+        <T>Preflight's payoff needs more teams than have self-driving turned on.</T>
         <div className="dk-cards3">
           <div className="dk-card">
             <div className="dk-card-h">3,000 teams, but only 2,250 have it</div>
-            <p>Finance assumes 3,000 teams use Preflight. Only 2,250 paying teams have self-driving turned on today (900 small, 1,125 mid-size, 225 large).</p>
+            <p>Finance assumes 3,000 teams. Only 2,250 paying teams have self-driving on today: 900 small, 1,125 mid-size, 225 large.</p>
             <Cite>Table C1 note, D5</Cite>
           </div>
           <div className="dk-card">
@@ -371,11 +368,11 @@ export const SLIDES = [
             <p className="dk-sm">Engineers also said they wouldn't trust a prediction (E1.5), and they look at 5 of 14 agent pull requests a week (D5).</p>
           </div>
         </div>
-        <p className="dk-lead">By not picking Preflight, PostHog skips a project with a 65% chance of failing its pilot.</p>
+        <p className="dk-lead">Skip Preflight and PostHog avoids a project that fails its pilot 65% of the time.</p>
         <Foot step="Prove it · Backup" src="Tables C1, D3, D5; E1.5" />
       </>
     ),
-    notes: { say: 'Use this if someone asks what PostHog gives up by not building Preflight. It has a 0.35 chance of passing its pilot, a $2.4M build cost, and a payoff that assumes more teams than actually have self-driving turned on.', qa: [['Where does the 92% come from?', 'EV = 0.35 × (0.6 × H − 0.6) − 2.4 equals zero when H is $12.4M. That is 92% of $13.5M, which is what you get at 100% adoption.']] },
+    notes: { say: 'Use this if someone asks what PostHog gives up by skipping Preflight. It has a 0.35 chance of passing its pilot and a $2.4M build cost. The payoff assumes more teams than have self-driving on.', qa: [['Where does the 92% come from?', 'EV = 0.35 × (0.6 × H − 0.6) − 2.4 hits zero when H is $12.4M. That\'s 92% of the $13.5M you\'d get at full adoption.']] },
   },
   /* Evidence: D5 + E1 */
   {
@@ -407,7 +404,7 @@ export const SLIDES = [
         <Foot step="Evidence" src="Tables C1, D5; Appendix E, interview E1. Highlights are ours; the ellipsis marks words we left out" />
       </>
     ),
-    notes: { say: 'This backs up the Preflight slide: 3,000 teams in Finance\'s note versus 2,250 teams with self-driving on, and an engineer who says he would not trust a prediction.', qa: [] },
+    notes: { say: 'Backs up the Preflight slide. Finance\'s note says 3,000 teams, but 2,250 have self-driving on. And the engineer says he wouldn\'t trust a prediction.', qa: [] },
   },
   /* 11 */
   {
@@ -427,21 +424,21 @@ export const SLIDES = [
           <div className="dk-panel">
             <div className="dk-h">Limits of Budget Guard</div>
             <ul className="dk-list">
-              <li>Only 41% of teams at a limit that didn't add a card gave fear of an unpredictable bill as the reason (127 of 310) <Cite>D2</Cite></li>
-              <li>27% didn't need more, 14% needed approval, and 10% moved to another tool <Cite>D2</Cite></li>
-              <li>Its best case is $6M, and capped paying teams could end up spending less <Cite>B1, C1</Cite></li>
+              <li>Only 41% of teams that hit a limit and skipped the card said they feared an unpredictable bill (127 of 310) <Cite>D2</Cite></li>
+              <li>The rest: 27% didn't need more, 14% needed approval, 10% left for another tool <Cite>D2</Cite></li>
+              <li>The best case is $6M. And a cap could make paying teams spend less <Cite>B1, C1</Cite></li>
             </ul>
           </div>
           <div className="dk-panel">
             <div className="dk-h">A test we would run on it</div>
             <p>Show the projected monthly cost on the free-limit screen for some teams at a limit, and compare how many add a card against today's 40% (992 of 2,480). <Cite>D1</Cite></p>
-            <p className="dk-sm">Expected spend = build + P(pass) × launch. Budget Guard has the best EV per dollar and we're not disputing that.</p>
+            <p className="dk-sm">Expected spend = build + P(pass) × launch. It wins on EV per dollar. We're not arguing that.</p>
           </div>
         </div>
         <Foot step="Prove it · 30 pts" src="Tables C1, D1, D2; expected spend and the ratios are our arithmetic" />
       </>
     ),
-    notes: { say: 'Be upfront here. Budget Guard is the best bet in Finance\'s table once you account for how little it costs. Our reasons for Crew are the bigger upside and the new group of users, not that it wins on EV per dollar.', qa: [['Why not Budget Guard?', 'Its best case is $6M, and it only helps the 41% who are afraid of the bill. Crew\'s claimed upside is $14M and it brings in a new group of users. We also keep Budget Guard going with a small test.'], ['What is "EV per $1 spent"?', 'It is EV divided by expected spend, where expected spend is the build cost plus the pilot-pass chance times the launch cost. Preflight is 2.4 + 0.35 × 0.6 = 2.61. Crew is 2.0 + 0.6 × 0.8 = 2.48. Budget Guard is 0.9 + 0.9 × 0.3 = 1.17.']] },
+    notes: { say: 'Be upfront. Budget Guard is the best bet in Finance\'s table once you count how little it costs. We\'re picking Crew for the bigger upside and the new group of users. We\'re not saying it wins on EV per dollar.', qa: [['Why not Budget Guard?', 'Its best case is $6M, and it only helps the 41% who fear the bill. Crew\'s claimed upside is $14M and it brings in a new group of users. We\'d also keep Budget Guard alive with a small test.'], ['What is EV per $1 spent?', 'EV divided by expected spend. Expected spend is the build cost plus the pilot-pass chance times the launch cost. Preflight: 2.4 + 0.35 × 0.6 = 2.61. Crew: 2.0 + 0.6 × 0.8 = 2.48. Budget Guard: 0.9 + 0.9 × 0.3 = 1.17.']] },
   },
   /* Evidence: D1 + D2 + E3 */
   {
@@ -481,7 +478,7 @@ export const SLIDES = [
         <Foot step="Evidence" src="Appendix D, tables D1 and D2; Appendix E, interview E3. Highlights are ours" />
       </>
     ),
-    notes: { say: 'This is the evidence for the Budget Guard slide. The highlighted row in Table D2 is the 41% who are afraid of an unpredictable bill. 992 of 2,480 added a card, which is the 40% we compare a Budget Guard test against.', qa: [['Does the survey represent everyone?', 'Not necessarily. 310 of 1,488 responded, which is 21%, so we treat 41% as a rough share.']] },
+    notes: { say: 'Evidence for the Budget Guard slide. The highlighted row in Table D2 is the 41% afraid of an unpredictable bill. 992 of 2,480 added a card. That\'s the 40% we\'d compare a Budget Guard test against.', qa: [['Does the survey represent everyone?', 'Not necessarily. 310 of 1,488 answered, 21%. So we treat the 41% as a rough number.']] },
   },
   /* 12 */
   {
@@ -508,7 +505,7 @@ export const SLIDES = [
         <Foot step="Prove it · 30 pts" src="The pilot size and the thresholds are our assumptions" />
       </>
     ),
-    notes: { say: 'This answers the judges\' question about the assumption most likely to be false and the cheapest test. The thresholds come straight from the break-even math: $7,000 at 20% adoption is where the expected value crosses zero.', qa: [['Can an 8-week pilot really measure usage growth?', 'It measures a run rate, which we annualise, and we say that. If the result is unclear we would extend the pilot instead of launching.']] },
+    notes: { say: 'This answers the judges\' question about the assumption most likely to be false and the cheapest test. The thresholds come straight from the break-even math. $7,000 at 20% adoption is where expected value crosses zero.', qa: [['Can an 8-week pilot really measure usage growth?', 'It measures a run rate, which we annualise, and we say so. If the result is murky, we extend the pilot. We don\'t launch.']] },
   },
   /* 13 */
   {
@@ -519,12 +516,12 @@ export const SLIDES = [
         <div className="dk-cards3">
           <div className="dk-card"><div className="dk-card-h">What we'd lose</div><p>If the pilot fails (a 40% chance), we lose the $2.0M build. The $0.8M launch money is never spent.</p></div>
           <div className="dk-card"><div className="dk-card-h">When we'd stop</div><p>If fewer than 10% of eligible teams adopt, or usage grows by less than $3,500 per team, we shelve Crew. At 10% adoption the EV is −$0.94M.</p></div>
-          <div className="dk-card"><div className="dk-card-h">What we'd fund instead</div><p>Budget Guard, which costs $0.9M to build and $0.3M to launch and has a 0.9 chance of passing its pilot.</p></div>
+          <div className="dk-card"><div className="dk-card-h">What we'd fund instead</div><p>Budget Guard. It costs $0.9M to build, $0.3M to launch, and passes its pilot 9 times out of 10.</p></div>
         </div>
         <Foot step="Pitch it · 30 pts" src="Table C1; the thresholds are our assumptions" />
       </>
     ),
-    notes: { say: 'We decide the stop rule now, before spending anything. If the numbers come in below it, we shelve Crew and fund Budget Guard.', qa: [['Where does $3,500 come from?', 'It is half of $7,000. At 20% adoption that gives a hit payoff of $3.15M, and the expected value is −$0.94M. It is our own stop rule, so it is an assumption.']] },
+    notes: { say: 'Decide the stop rule now, before spending anything. If the pilot numbers land below it, we shelve Crew and fund Budget Guard.', qa: [['Where does $3,500 come from?', 'It\'s half of $7,000. At 20% adoption that gives a hit payoff of $3.15M and an expected value of −$0.94M. It\'s our own stop rule, so it\'s an assumption.']] },
   },
   /* 14 */
   {
@@ -537,15 +534,15 @@ export const SLIDES = [
             <div className="dk-h">Why now</div>
             <ul className="dk-list">
               <li>PostHog AI is now the default for new users, and half of them aren't engineers or founders <Cite>Appendix A</Cite></li>
-              <li>PostHog is moving from read-only analytics to software that does the work <Cite>Appendix A</Cite></li>
+              <li>A co-founder wrote in May 2026 that PostHog is moving from read-only analytics to software that does the work <Cite>Appendix A</Cite></li>
               <li>Amplitude and Mixpanel already build for PMs <Cite>Appendix A, B1</Cite></li>
             </ul>
           </div>
           <div className="dk-panel">
             <div className="dk-h">What Crew adds</div>
             <ul className="dk-list">
-              <li>A product for the roles that already use PostHog but weren't the target</li>
-              <li>Engineers stay in control: they verify events, and launches use flags, auto-stop and an FYI instead of a ticket</li>
+              <li>Crew is built for people who already use PostHog and weren't the target</li>
+              <li>Engineers stay in control. They verify events, and every launch has a flag, an auto-stop and an FYI instead of a ticket</li>
               <li>Finance doesn't count retention. The head of growth says teams with more people in PostHog don't leave, and we'd measure that in the pilot</li>
             </ul>
           </div>
@@ -553,20 +550,20 @@ export const SLIDES = [
         <Foot step="Pitch it · 30 pts" src="Appendix A, B" />
       </>
     ),
-    notes: { say: 'This is the part the EV table can\'t show. Three points: the non-engineer users are already there, PostHog is moving toward software that does the work, and Crew keeps the engineer in control, which fits their "nothing ships without you" approach.', qa: [['Is the retention benefit proven?', 'No. The packet has no churn data. We list it as possible upside and we would measure it in the pilot.']] },
+    notes: { say: 'The EV table can\'t show this part. Make three points. The non-engineer users are already here. PostHog is heading toward software that does the work. And Crew keeps the engineer in control, which fits their nothing-ships-without-you approach.', qa: [['Is the retention benefit proven?', 'No. The packet has no churn data. It\'s possible upside, and we\'d measure it in the pilot.']] },
   },
   /* 15 */
   {
     id: 'ask',
     body: ({ openDemo }) => (
       <div className="dk-center">
-        <h2 className="dk-title big">Our ask: fund Crew's $2.0M build, and only launch if the pilot passes.</h2>
+        <h2 className="dk-title big">Fund the $2.0M build. Launch only if the pilot passes.</h2>
         <p className="dk-sub">We'd also run the small Budget Guard test alongside it.</p>
         <div className="dk-meta">Praneeth · Vinesh · Jasim</div>
         <button className="dk-cta" onClick={openDemo}>Open the live demo</button>
       </div>
     ),
-    notes: { say: 'Say the ask once, then open it up for questions. Check that all three of us have spoken by now.', qa: [] },
+    notes: { say: 'Say the ask once, then open it up for questions. Check that all three of us have spoken.', qa: [] },
   },
   /* 16 */
   {
