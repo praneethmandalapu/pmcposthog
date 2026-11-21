@@ -125,51 +125,6 @@ export const SLIDES = [
       ],
     },
   },
-  /* 4 · the numbers */
-  {
-    id: 'numbers',
-    body: () => (
-      <>
-        <T>Give each feature the same share of the teams it can actually reach, and Crew comes out on top.</T>
-        <table className="dk-table small dk-num4">
-          <thead><tr><th /><th>Teams it can reach</th><th>Adopting (44%)</th><th>× per team</th><th>Hit ARR</th><th>EV, Finance</th><th>EV, same adoption</th></tr></thead>
-          <tbody>
-            <tr><td>Preflight</td><td>1,350</td><td>600</td><td>$10,000</td><td>$6.0M</td><td>$3.69M</td><td className="neg">−$1.35M</td></tr>
-            <tr><td>Budget Guard</td><td>7,341</td><td>3,263</td><td>$1,200</td><td>$3.9M</td><td>$3.02M</td><td>+$1.70M</td></tr>
-            <tr className="on"><td>Crew</td><td>4,500</td><td>2,000</td><td>$7,000</td><td>$14.0M</td><td>$2.32M</td><td>+$2.32M</td></tr>
-          </tbody>
-        </table>
-        <div className="dk-split2 dk-gap">
-          <div className="dk-math">
-            Crew EV = 0.6 × [ 0.5 × 14 + 0.5 × 2 − 0.8 ] − 2.0 = <b>$2.32M</b>.<br />
-            44% is Finance's own figure for Crew: 2,000 of 4,500. We give the other two the same 44% of the teams they can reach.<br />
-            At 40%: Crew $1.90M, Budget Guard $1.45M. At 30%: $0.96M and $0.90M.
-          </div>
-          <div className="dk-panel dk-tiny">
-            <div className="dk-h">Where "teams it can reach" comes from</div>
-            <ul className="dk-list">
-              <li>Crew: mid-size and large paying teams, 3,750 + 750. They hold 85% of ARR <Cite>D3</Cite></li>
-              <li>Preflight: mid-size and large teams with self-driving on, 1,125 + 225. Small teams spend $1,430 a year, and Finance's 3,000 is more than the 2,250 that have it <Cite>D3, D5</Cite></li>
-              <li>Budget Guard: the 41% of capped teams that cite fear of the bill, out of 6,000 today plus 1,488 a quarter for 8 quarters: 0.41 × 17,904 <Cite>D1, D2</Cite></li>
-            </ul>
-          </div>
-        </div>
-        <Foot step="Prove it · 30 pts" src="Tables C1, D1, D2, D3, D5. Equal 44% adoption is our scenario; the $7,000, $10,000 and $1,200 per team are Finance's numbers" />
-      </>
-    ),
-    notes: {
-      say: "Lead with the answer. Finance's table as given puts Crew third. The brief asks us to correct assumptions with the data tables, so we did it for all three the same way. For each feature we count the teams it can actually reach. Then we give each one the same 44% adoption, which is Finance's own figure for Crew: 2,000 of 4,500 teams. Preflight's payoff drops because small teams can't pay $10,000 more and only 2,250 teams have self-driving on. Budget Guard's drops because only 41% of capped teams said they fear the bill. Crew stays where Finance put it, and it comes out on top. Say once that the $7,000 has to come from usage, not seats, and that's what the pilot measures.",
-      qa: [
-        ["Aren't you picking the assumption that makes Crew win?", "44% is Finance's number for Crew, and we show 40% and 30% on the slide too. Crew leads at all three. Be straight about the low end: at 30% it's close, $0.96M against $0.90M, and below about 30% Budget Guard comes out ahead. That's why the pilot measures adoption first."],
-        ["Where does 7,341 come from?", "Table D1 has 2,480 teams reaching a free limit per quarter and 992 adding a card, so 1,488 don't. Finance counts the 6,000 at a limit today plus the teams that reach one over two years. That's 6,000 + 8 × 1,488 = 17,904. Table D2 says 41% of them cite fear of the bill. 0.41 × 17,904 = 7,341."],
-        ["What does Finance's table say without your changes?", "Preflight $3.69M, Budget Guard $3.02M, Crew $2.32M. The calculation is EV = P(pilot) × [P(hit) × hit + (1 − P(hit)) × miss − launch] − build. For Crew that's 0.6 × [0.5 × 14 + 0.5 × 2 − 0.8] − 2.0 = $2.32M."],
-        ['How do you treat a failed pilot?', 'The feature gets shelved. No launch cost, no payoff. Only the build is lost.'],
-        ['Then how does Crew make money?', 'Through usage that PMs, support and marketing create. Their AI questions use credits. Their experiments create events and flag usage. PostHog charges for usage, not seats (note under D4), so the pilot is built to measure exactly that.'],
-        ['Why not count small teams for Crew?', "They spend $1,430 a year on average, so $7,000 more is a 490% jump. For mid-size it's 66% and for large it's 12% (Table D3)."],
-        ['Where does the Preflight number come from?', 'Count only the 1,350 mid-size and large teams with self-driving at $10,000 each. At 44% that is 600 teams and $6.0M. EV = 0.35 × [0.6 × 6.0 − 0.6] − 2.4 = −$1.35M. Even at 100% adoption it is only $0.23M.'],
-      ],
-    },
-  },
   /* 5 · why Crew, and the pilot */
   {
     id: 'ask',
@@ -180,7 +135,7 @@ export const SLIDES = [
           <table className="dk-table small dk-cmp">
             <thead><tr><th /><th>Preflight</th><th className="on">Crew</th><th>Budget Guard</th></tr></thead>
             <tbody>
-              <tr><td>Expected value, same adoption</td><td>−$1.35M</td><td className="on">+$2.32M</td><td>+$1.70M</td></tr>
+              <tr><td>EV if each gets the same 44% adoption</td><td>−$1.35M</td><td className="on">+$2.32M</td><td>+$1.70M</td></tr>
               <tr><td>Pilot fails</td><td>65%</td><td className="on">40%</td><td>10%</td></tr>
               <tr><td>If the launch misses</td><td>$0 ARR</td><td className="on">$2M ARR</td><td>$1.5M ARR</td></tr>
               <tr><td>Customer</td><td>Engineers. Only 2,250 teams have self-driving on</td><td className="on">A new group: 38% of weekly users. We start with mid-size and large teams, 85% of ARR</td><td>Free teams at a limit, and small paying teams (70% of paying teams, 15% of ARR)</td></tr>
@@ -198,12 +153,19 @@ export const SLIDES = [
             <p className="dk-ask">The ask: <b>$2.0M</b> to build. The <b>$0.8M</b> for launch only if the pilot passes.</p>
           </div>
         </div>
-        <Foot step="Pitch it · 30 pts" src="Tables B1, C1, D1, D3, D5. The equal-adoption values and the pilot thresholds are our arithmetic and assumptions" />
+        <Foot step="Pitch it · 30 pts" src="Tables B1, C1, D1, D2, D3, D5. 44% is Finance's figure for Crew, applied to the teams each feature can reach (1,350 / 4,500 / 7,341). Our arithmetic and assumptions" />
       </>
     ),
     notes: {
-      say: "This is the slide for why Crew. Read the first row: with the same adoption, Crew has the best expected value. Then the pilot odds. Crew fails its pilot 40% of the time against 65% for Preflight, and its launch pays $2M even if it misses, where Preflight pays nothing. Then the customer. Crew serves a group that's 38% of weekly users, and we start with the mid-size and large teams that hold 85% of ARR. The PM market is the one PostHog's competitors already sell to. Then the pilot, the stop rule, and the ask. Check that all three of us have spoken.",
+      say: "This is the slide for why Crew. Read the first row and explain it in two sentences. Finance's table as given puts Crew third. We corrected all three the same way: count the teams each feature can actually reach, then give each one the same 44% adoption, which is Finance's own figure for Crew (2,000 of 4,500 teams). Crew keeps its number. Preflight drops to −$1.35M and Budget Guard to $1.70M. Say once that the $7,000 has to come from usage, not seats, and that's what the pilot measures. Then the pilot odds. Crew fails its pilot 40% of the time against 65% for Preflight, and its launch pays $2M even if it misses, where Preflight pays nothing. Then the customer. Crew serves a group that's 38% of weekly users, and we start with the mid-size and large teams that hold 85% of ARR. The PM market is the one PostHog's competitors already sell to. Then the pilot, the stop rule, and the ask. Check that all three of us have spoken.",
       qa: [
+        ["Aren't you picking the assumption that makes Crew win?", "44% is Finance's number for Crew. At 40%, Crew is $1.90M against $1.45M for Budget Guard. At 30% it's $0.96M against $0.90M. Be straight about the low end: below about 30% Budget Guard comes out ahead, which is why the pilot measures adoption first."],
+        ["Where does 7,341 come from?", "Table D1 has 2,480 teams reaching a free limit per quarter and 992 adding a card, so 1,488 don't. Finance counts the 6,000 at a limit today plus the teams that reach one over two years. That's 6,000 + 8 × 1,488 = 17,904. Table D2 says 41% of them cite fear of the bill. 0.41 × 17,904 = 7,341."],
+        ["What does Finance's table say without your changes?", "Preflight $3.69M, Budget Guard $3.02M, Crew $2.32M. The calculation is EV = P(pilot) × [P(hit) × hit + (1 − P(hit)) × miss − launch] − build. For Crew that's 0.6 × [0.5 × 14 + 0.5 × 2 − 0.8] − 2.0 = $2.32M."],
+        ['How do you treat a failed pilot?', 'The feature gets shelved. No launch cost, no payoff. Only the build is lost.'],
+        ['Then how does Crew make money?', 'Through usage that PMs, support and marketing create. Their AI questions use credits. Their experiments create events and flag usage. PostHog charges for usage, not seats (note under D4), so the pilot is built to measure exactly that.'],
+        ['Why not count small teams for Crew?', "They spend $1,430 a year on average, so $7,000 more is a 490% jump. For mid-size it's 66% and for large it's 12% (Table D3)."],
+        ['Where does the Preflight number come from?', 'Count only the 1,350 mid-size and large teams with self-driving at $10,000 each. At 44% that is 600 teams and $6.0M. EV = 0.35 × [0.6 × 6.0 − 0.6] − 2.4 = −$1.35M. Even at 100% adoption it is only $0.23M.'],
         ['Budget Guard costs less and passes its pilot more often. Why not that one?', "It does, and we're not hiding it. The case for Crew is the size and kind of customer. A mid-size team spends $10,670 a year and a large team $60,000 (D3), and a Budget Guard convert spends about $1,200 (D1). Budget Guard's best case is $6M and it only helps the 41% who fear the bill. At Finance's own $7,000 a team, Crew's reachable base of 4,500 teams is worth $31.5M at full adoption. And Crew is the only one of the three that brings a new group of users onto PostHog. We'd also keep Budget Guard alive with a small test: show the projected monthly cost on the free-limit screen and compare add-a-card rates against today's 40% (992 of 2,480, Table D1)."],
         ['Why not Preflight?', "Its pilot fails 65% of the time, its payoff assumes 3,000 teams when 2,250 have self-driving on, and small teams spend $1,430 a year, so $10,000 more doesn't fit them. Count only the 1,350 mid-size and large teams and the most it can reach is $13.5M, not $30M. The engineer in E1 also said he wouldn't trust a prediction (E1.5)."],
         ['Can an 8-week pilot really measure usage growth?', "It measures a run rate, which we annualise, and we say so. If the result is murky, we extend the pilot. We don't launch."],
