@@ -34,12 +34,17 @@ export const SLIDES = [
         <h1 className="dk-hero">Crew<span className="ck"><svg viewBox="0 0 20 20"><path d="M5 10.5l3.2 3.2L15 6.8" /></svg></span></h1>
         <p className="dk-sub">A workspace for the people on the team who don't write code.</p>
         <p className="dk-lead">We want PostHog's <b>$2.0M</b> build budget for Crew. The <b>$0.8M</b> for launch? Only if the pilot passes.</p>
+        <div className="dk-why">
+          <div><b>A measured gap</b><span>38% of weekly users create 8% of experiments</span></div>
+          <div><b>A low bar to clear</b><span>Crew breaks even at 20% adoption. Preflight needs 92%</span></div>
+          <div><b>A hard stop</b><span>If the pilot fails, we lose only the $2.0M build</span></div>
+        </div>
         <div className="dk-meta">PMC@UCSC × PostHog Product Case Competition · Fall 2026</div>
         <div className="dk-meta dim">Praneeth · Vinesh · Jasim</div>
       </div>
     ),
     notes: {
-      say: "Say hi. PostHog has $3.0M and one slot in 2027, and we picked Crew. Say the ask now so nobody wonders where this is going: $2.0M to build, and the $0.8M for launch only if the pilot passes. Promise a demo, then the numbers. That includes the ones that don't help us.",
+      say: "Say hi. PostHog has $3.0M and one slot in 2027, and we picked Crew. Say the ask now so nobody wonders where this is going: $2.0M to build, and the $0.8M for launch only if the pilot passes. Give the three reasons in one breath. A gap we can measure. A bar that's low compared with Preflight. A hard stop if it doesn't work. Promise a demo, then the numbers, including the ones that don't help us.",
       qa: [['Why not split the money across two features?', 'The case says leadership funds one. What we can do is propose a small test of another feature, and we do that for Budget Guard.']],
     },
   },
@@ -151,14 +156,10 @@ export const SLIDES = [
               <li>2,000 teams is 44% of the 4,500 mid-size and large teams <Cite>D3</Cite></li>
               <li>Mid-size and large teams are 30% of teams and 85% of ARR, so they're our customer <Cite>D3</Cite></li>
             </ul>
-            <div className="dk-h dk-h2">The other two</div>
-            <ul className="dk-list">
-              <li>Budget Guard wins on EV per dollar (2.58 vs Crew's 0.94). We're not arguing that. Only 41% of the teams that skipped the card feared the bill <Cite>D2</Cite></li>
-              <li>Preflight assumes 3,000 teams. Only 2,250 have self-driving on <Cite>D5</Cite></li>
-            </ul>
+            <p className="dk-sm">Budget Guard has the best EV per dollar (2.58 vs Crew's 0.94). That's real, so the next slide is about why Crew anyway.</p>
           </div>
         </div>
-        <Foot step="Prove it · 30 pts" src="Tables C1, D2, D3, D4, D5. The corrected adoption share is our scenario; $7,000 is Finance's number" />
+        <Foot step="Prove it · 30 pts" src="Tables C1, D3, D4. The corrected adoption share is our scenario; $7,000 is Finance's number" />
       </>
     ),
     notes: {
@@ -175,44 +176,46 @@ export const SLIDES = [
       ],
     },
   },
-  /* 5 · risk and the ask */
+  /* 5 · why Crew, and the pilot */
   {
     id: 'ask',
     body: () => (
       <>
-        <T>Fund the $2.0M build. Launch only if the pilot passes.</T>
-        <div className="dk-split2">
-          <div className="dk-panel">
-            <div className="dk-h">The assumption most likely to be wrong</div>
-            <p className="dk-big sm">20% of mid-size and large teams adopt Crew, and each spends $7,000 more.</p>
-            <div className="dk-h dk-h2">Our test</div>
+        <T>Why Crew over the other two, and how we'd prove it first.</T>
+        <div className="dk-split">
+          <table className="dk-table small dk-cmp">
+            <thead><tr><th /><th>Preflight</th><th className="on">Crew</th><th>Budget Guard</th></tr></thead>
+            <tbody>
+              <tr><td>Breaks even if</td><td>92% of its 1,350 mid-size and large teams pay $10,000 more</td><td className="on">20% of 4,500 mid-size and large teams spend $7,000 more</td><td>1,012 of 5,000 capped teams start paying $1,200</td></tr>
+              <tr><td>Pilot fails</td><td>65%</td><td className="on">40%</td><td>10%</td></tr>
+              <tr><td>If the launch misses</td><td>$0 ARR</td><td className="on">$2M ARR</td><td>$1.5M ARR</td></tr>
+              <tr><td>Customer</td><td>Engineers. Only 2,250 teams have self-driving on</td><td className="on">A new group: 38% of weekly users. We start with mid-size and large teams, 85% of ARR</td><td>Free teams at a limit, and small paying teams (70% of paying teams, 15% of ARR)</td></tr>
+              <tr><td>Role</td><td>Breakthrough. Unproven that simulated users act like real ones</td><td className="on">Platform. A base for the PM market Amplitude and Mixpanel already serve</td><td>Derivative. Best case $6M</td></tr>
+            </tbody>
+          </table>
+          <div className="dk-panel dk-tiny">
+            <div className="dk-h">Our pilot, and the stop rule</div>
             <ul className="dk-list">
-              <li>8-week pilot with a small group of mid-size and large teams</li>
-              <li>It passes if PMs, support and marketing create <b>20%</b> of experiments and usage grows by <b>$7,000</b> a year per adopting team</li>
-              <li>Under 10% adoption or under $3,500 per team, we shelve Crew and fund Budget Guard ($0.9M build, $0.3M launch)</li>
-              <li>If the pilot fails, we lose the $2.0M build and nothing else</li>
+              <li>8 weeks, a small group of mid-size and large teams</li>
+              <li>Pass: PMs, support and marketing create <b>20%</b> of experiments, and usage grows <b>$7,000</b> a year per adopting team</li>
+              <li>Under 10% adoption or under $3,500 per team, we shelve Crew and fund Budget Guard</li>
+              <li>Retention isn't in Finance's numbers. We'd measure it too <Cite>A</Cite></li>
             </ul>
-          </div>
-          <div className="dk-panel">
-            <div className="dk-h">Why it fits where PostHog is going</div>
-            <ul className="dk-list">
-              <li>PostHog AI is now the default for new users, and half of them aren't engineers or founders <Cite>Appendix A</Cite></li>
-              <li>Amplitude and Mixpanel already build for PMs <Cite>Appendix A, B1</Cite></li>
-              <li>Engineers stay in control: they verify events, and every launch has a flag, an auto-stop and an FYI instead of a ticket</li>
-              <li>Finance doesn't count retention. The head of growth says teams with more people in PostHog don't leave. We'd measure that in the pilot</li>
-            </ul>
+            <p className="dk-ask">The ask: <b>$2.0M</b> to build. The <b>$0.8M</b> for launch only if the pilot passes.</p>
           </div>
         </div>
-        <Foot step="Pitch it · 30 pts" src="Pilot size and thresholds are our assumptions. Praneeth · Vinesh · Jasim" />
+        <Foot step="Pitch it · 30 pts" src="Tables B1, C1, D1, D3, D5. Break-even points and the pilot thresholds are our arithmetic and assumptions" />
       </>
     ),
     notes: {
-      say: "Name the assumption most likely to be wrong and the cheapest test, because the judges will ask. The thresholds come straight from the break-even math. $7,000 at 20% adoption is where expected value crosses zero. Decide the stop rule now, before spending anything. Then say the ask once, and open it up for questions. Check that all three of us have spoken.",
+      say: "This is the slide for why Crew wins even though Budget Guard has the higher EV. Read the first row: Crew breaks even when one in five eligible teams adopts. Preflight needs nearly all of its teams. Then the customer. Crew serves a group that's 38% of weekly users, and we start with the mid-size and large teams that hold 85% of ARR. The PM market is the one PostHog's competitors already sell to. Then the pilot, the stop rule, and the ask. Check that all three of us have spoken.",
       qa: [
+        ['Where do the break-even numbers come from?', "Set the expected value to zero and solve for the hit payoff. Crew: 0.6 × [0.5 × H + 1 − 0.8] − 2.0 = 0, so H is $6.27M. At $7,000 a team that's about 895 teams, 19.9% of 4,500. Preflight: 0.35 × [0.6 × H − 0.6] − 2.4 = 0, so H is $12.43M, which is 1,243 of the 1,350 teams at $10,000. That's 92%. Budget Guard: 0.9 × [0.7 × H + 0.15] − 0.9 = 0, so H is $1.21M, or 1,012 teams at $1,200. That's 20% of Finance's 5,000."],
+        ['Budget Guard breaks even at about the same share. Why not that one?', "It does, and it costs less and passes its pilot more often. We're not claiming otherwise. Our case for Crew is the size of the customer and the direction. A mid-size team spends $10,670 a year and a large team $60,000 (D3), and a Budget Guard convert spends about $1,200 (D1). Budget Guard's best case is $6M. Crew's eligible base is 4,500 teams, so at Finance's own $7,000 a team the ceiling is $31.5M at full adoption. And it's the only one of the three that brings a new group of users onto PostHog. We'd also keep Budget Guard alive with a small test: show the projected monthly cost on the free-limit screen and compare add-a-card rates against today's 40% (992 of 2,480, Table D1)."],
+        ['Why not Preflight?', "Its pilot fails 65% of the time, its payoff assumes 3,000 teams when 2,250 have self-driving on, and small teams spend $1,430 a year, so $10,000 more doesn't fit them. Count only the 1,350 mid-size and large teams at 100% adoption and you get $13.5M, not $30M. EV is $0.23M, and it goes negative below 92% adoption. The engineer in E1 also said he wouldn't trust a prediction (E1.5)."],
         ['Can an 8-week pilot really measure usage growth?', "It measures a run rate, which we annualise, and we say so. If the result is murky, we extend the pilot. We don't launch."],
         ['Where does $3,500 come from?', "It's half of $7,000. At 20% adoption that gives a hit payoff of $3.15M and an expected value of −$0.94M. It's our own stop rule, so it's an assumption."],
         ['Is the retention benefit proven?', "No. The packet has no churn data. One point of yearly churn on the $85M of mid-size and large ARR would be worth $0.85M, so it's possible upside, and we'd measure it in the pilot."],
-        ['What does PostHog give up by skipping the others?', "Preflight is a breakthrough bet that fails its pilot 65% of the time. Budget Guard is the safest bet and we'd test it alongside."],
       ],
     },
   },

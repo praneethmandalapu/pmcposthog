@@ -472,3 +472,12 @@ body { background: radial-gradient(ellipse 90% 70% at 50% 42%, #2c2c30 0%, #1515
 .deck-slide .dk-cta { margin-top: 18px; }
 .dk-metric.slim .dk-flow { font-size: 44px; white-space: nowrap; gap: 14px; }
 .dk-metric.slim .dk-flow i { font-size: 26px; }
+
+.dk-why { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 26px; max-width: 980px; }
+.dk-why div { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.16); border-radius: 14px; padding: 14px 16px; text-align: left; }
+.dk-why b { display: block; font-size: 17px; margin-bottom: 4px; } .dk-why span { font-size: 15px; line-height: 1.35; color: rgba(255,255,255,.8); }
+.dk-cmp td, .dk-cmp th { text-align: left; vertical-align: top; font-size: 14px; line-height: 1.35; padding: 9px 10px; }
+.dk-cmp td:first-child { color: #55564f; font-weight: 700; width: 17%; } .dk-cmp th { font-size: 15px; }
+.dk-cmp td.on { font-weight: 700; }
+.dk-split:has(.dk-cmp) { grid-template-columns: 1.55fr 1fr; }
+.dk-ask { margin: 14px 0 0; padding-top: 12px; border-top: 1px solid #d5d6ce; font-size: 17px; line-height: 1.4; color: #151515; }
