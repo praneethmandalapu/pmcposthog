@@ -9,6 +9,35 @@ const Foot = ({ step, src }) => (
 )
 const Cite = ({ children }) => <span className="dk-cite">{children}</span>
 
+
+/* Evidence helpers: tables and quotes are copied from the case packet. Highlighted rows and notes are ours. */
+const Ev = ({ title, cols, rows, note, small }) => {
+  const hasNote = rows.some((r) => r.note)
+  return (
+    <div className={`dk-ev ${small ? 'small' : ''}`}>
+      <div className="dk-ev-t">{title}</div>
+      <table>
+        <thead><tr>{cols.map((c, i) => <th key={i}>{c}</th>)}{hasNote && <th />}</tr></thead>
+        <tbody>
+          {rows.map((r, k) => (
+            <tr key={k} className={r.hl ? 'hl' : ''}>
+              {r.c.map((x, i) => <td key={i}>{x}</td>)}
+              {hasNote && <td className="nt">{r.note || ''}</td>}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      {note && <p className="dk-ev-note">{note}</p>}
+    </div>
+  )
+}
+const Q = ({ id, who, tag, children }) => (
+  <figure className="dk-q">
+    <blockquote>{children}</blockquote>
+    <figcaption><b>{id}</b><span>{who}</span>{tag && <i>{tag}</i>}</figcaption>
+  </figure>
+)
+
 const ROLES = [
   { r: 'Engineers', u: 48, e: 83 },
   { r: 'Founders', u: 14, e: 9 },
@@ -55,7 +84,7 @@ export const SLIDES = [
         <Foot step="The decision" src="Tables B1, C1" />
       </>
     ),
-    notes: { say: 'These are the three options from the case. We want the $2.0M build budget for Crew. The case already has a pilot step, so we only spend the launch money if the pilot passes.', qa: [['Why not split the money across two features?', 'The case says leadership will fund one. What we can do is propose a small test of another feature, and we do that for Budget Guard on slide 11.']] },
+    notes: { say: 'These are the three options from the case. We want the $2.0M build budget for Crew. The case already has a pilot step, so we only spend the launch money if the pilot passes.', qa: [['Why not split the money across two features?', 'The case says leadership will fund one. What we can do is propose a small test of another feature, and we do that for Budget Guard on slide 15.']] },
   },
   /* 3 */
   {
@@ -89,6 +118,33 @@ export const SLIDES = [
       qa: [['Why not count founders as non-engineers too?', 'Founders are close to even on this table, 14% of users and 9% of experiments. The gap is in the PM, support and marketing rows.'], ['How did you get 8x?', 'Engineers are 83% of experiments and 48% of users, so 83 divided by 48 is 1.73. The other roles are 8 divided by 38, which is 0.21. 1.73 divided by 0.21 is about 8.']],
     },
   },
+  /* Evidence: D4 */
+  {
+    id: 'ev-d4',
+    body: () => (
+      <>
+        <T>Evidence: Table D4 and the PostHog AI user mix.</T>
+        <div className="dk-split">
+          <Ev
+            title="Table D4. People active each week at paying teams, by role."
+            cols={['Role', 'Share of weekly active people', 'Share of experiments created']}
+            rows={[
+              { c: ['Engineers', '48%', '83%'] },
+              { c: ['Founders', '14%', '9%'] },
+              { c: ['PMs and designers', '17%', '6%'], hl: true, note: '17% + 21% = 38% of users' },
+              { c: ['Marketing, support, and data', '21%', '2%'], hl: true, note: '6% + 2% = 8% of experiments' },
+            ]}
+            note="Packet note: PostHog charges for usage (events, recordings, AI credits) and not for seats. Adding a person to a team costs the team nothing."
+          />
+          <div className="dk-qs">
+            <Q id="Appendix A" who="PostHog fact sheet (public)">"Of the people who use PostHog AI, <mark>25 percent are engineers, 25 percent are founders, and 50 percent hold other roles</mark>."</Q>
+          </div>
+        </div>
+        <Foot step="Evidence" src="Highlighted rows and the sums are our annotations; the table is copied from the packet" />
+      </>
+    ),
+    notes: { say: 'Show this if a judge asks where the 38% and the 8% come from. The two highlighted rows are the PM and the marketing, support and data rows. We add them up. The founders row is left out on purpose.', qa: [['Is the usage-not-seats point really in the packet?', 'Yes, it is the note under Table D4: PostHog charges for usage and not for seats.']] },
+  },
   /* 4 */
   {
     id: 'did-said',
@@ -120,6 +176,24 @@ export const SLIDES = [
       </>
     ),
     notes: { say: 'We split what the PM did from what they said. They did the same thing every week: get a chart, not trust it, ask an engineer, wait. They said they would probably run experiments themselves but they are nervous about production. So Crew has two jobs, making the answer trustworthy and making the launch safe.', qa: [['Is one interview enough?', 'No, it only shows how it happens. The population evidence is Table D4: 38% of users and 8% of experiments.']] },
+  },
+  /* Evidence: E2 */
+  {
+    id: 'ev-e2',
+    body: () => (
+      <>
+        <T>Evidence: interview E2, in the PM's own words.</T>
+        <div className="dk-qgrid">
+          <Q id="E2.1" who="PM at a 150-person software company" tag="did">"Last Thursday. I wanted to know if the new onboarding cut drop-off. I asked PostHog AI and <mark>had a chart in a minute</mark>."</Q>
+          <Q id="E2.2" who="same PM" tag="did">"Nothing yet. I wasn't sure it used the right event. <mark>We have three that sound like 'signup.'</mark> So I messaged our engineer. She answered on Monday."</Q>
+          <Q id="E2.3" who="same PM" tag="did">"Most weeks. I screenshot the chart into Slack and ask, <mark>'is this right?'</mark>"</Q>
+          <Q id="E2.4" who="same PM" tag="did">"No. I file a ticket. <mark>It takes about a week to get picked up.</mark>"</Q>
+          <Q id="E2.5" who="same PM" tag="said">"I think so? <mark>I'd be nervous about breaking something in production.</mark>"</Q>
+        </div>
+        <Foot step="Evidence" src="Appendix E, interview E2. Highlights and the did / said tags are ours" />
+      </>
+    ),
+    notes: { say: 'These are direct quotes from the packet, with the exchange numbers. The first four are things the PM did. The last one is what they said they would do, and it is hedged.', qa: [['Is this just one person?', 'Yes, one interview. We use it for the mechanism and use Table D4 for the numbers.']] },
   },
   /* 5 */
   {
@@ -224,6 +298,32 @@ export const SLIDES = [
     ),
     notes: { say: 'We have three reasons. The main one is the pricing note: seats are free, so Crew only makes money if people use more of the product. A technical judge will probably ask about this, so we bring it up ourselves.', qa: [['Then how does Crew make money?', 'From the usage PMs, support and marketing create: AI credits from their questions, and events and flag usage from the experiments they run. The pilot is designed to measure that.'], ['Why leave out small teams?', 'Small teams spend $1,430 a year on average. Adding $7,000 would be a 490% increase.']] },
   },
+  /* Evidence: D3 + Finance note */
+  {
+    id: 'ev-d3',
+    body: () => (
+      <>
+        <T>Evidence: Table D3 and Finance's note on Crew.</T>
+        <Ev
+          title="Table D3. Paying teams, ARR, and average spend by team size."
+          cols={['Team size', 'Paying teams', 'Share of teams', 'ARR', 'Share of ARR', 'Average spend per team per year']}
+          rows={[
+            { c: ['Small', '10,500', '70%', '$15M', '15%', '$1,430'], hl: true, note: '$7,000 extra = +490%' },
+            { c: ['Mid-size', '3,750', '25%', '$40M', '40%', '$10,670'], note: '+66%' },
+            { c: ['Large', '750', '5%', '$45M', '45%', '$60,000'], note: '+12%' },
+            { c: ['All paying teams', '15,000', '100%', '$100M', '100%', '$6,670'] },
+          ]}
+          note="Packet note: small teams have 1 to 10 people, mid-size teams 11 to 100, and large teams more than 100. Mid-size + large = 4,500 teams (30%) and $85M of ARR (85%)."
+          small
+        />
+        <div className="dk-qs wide">
+          <Q id="Table C1 note" who="Finance, on Crew">"The $14M assumes 2,000 paying teams each spend $7,000 a year more once their PMs, support, and marketing use PostHog directly."</Q>
+        </div>
+        <Foot step="Evidence" src="The percentages in the right-hand column are our arithmetic: 7,000 ÷ 1,430, 7,000 ÷ 10,670, 7,000 ÷ 60,000" />
+      </>
+    ),
+    notes: { say: 'Table D3 is how we check Finance\'s $7,000. It is 490% of what a small team spends today, 66% for mid-size and 12% for large. The quote is Finance\'s own note under Table C1.', qa: [['Are you saying Crew should only target mid-size and large teams?', 'For the revenue case, yes. Small teams are 70% of teams but only 15% of ARR.']] },
+  },
   /* 9 */
   {
     id: 'corrected',
@@ -246,7 +346,7 @@ export const SLIDES = [
         <Foot step="Prove it · 30 pts" src="Tables C1, D3. The $7,000 is Finance's number; the adoption shares are our scenarios" />
       </>
     ),
-    notes: { say: 'Finance had $2.32M. If we only count the mid-size and large teams that could afford the extra spend, and assume 20% of them adopt, it comes out around zero. We are not hiding that. The pilot exists to find out whether 20% adoption and $7,000 are realistic.', qa: [['So why fund it?', 'The most we can lose is the $2.0M build, and that happens 40% of the time. The upside is bigger than the other two if it works, and there is a strategy argument that is not in the EV table (slide 14).'], ['Does Crew beat Budget Guard on EV?', 'No, not on Finance\'s numbers. Crew would need a hit payoff of about $16.3M to match Budget Guard\'s $3.02M. We are not claiming it does.']] },
+    notes: { say: 'Finance had $2.32M. If we only count the mid-size and large teams that could afford the extra spend, and assume 20% of them adopt, it comes out around zero. We are not hiding that. The pilot exists to find out whether 20% adoption and $7,000 are realistic.', qa: [['So why fund it?', 'The most we can lose is the $2.0M build, and that happens 40% of the time. The upside is bigger than the other two if it works, and there is a strategy argument that is not in the EV table (slide 19).'], ['Does Crew beat Budget Guard on EV?', 'No, not on Finance\'s numbers. Crew would need a hit payoff of about $16.3M to match Budget Guard\'s $3.02M. We are not claiming it does.']] },
   },
   /* 10 */
   {
@@ -276,6 +376,38 @@ export const SLIDES = [
       </>
     ),
     notes: { say: 'Use this if someone asks what PostHog gives up by not building Preflight. It has a 0.35 chance of passing its pilot, a $2.4M build cost, and a payoff that assumes more teams than actually have self-driving turned on.', qa: [['Where does the 92% come from?', 'EV = 0.35 × (0.6 × H − 0.6) − 2.4 equals zero when H is $12.4M. That is 92% of $13.5M, which is what you get at 100% adoption.']] },
+  },
+  /* Evidence: D5 + E1 */
+  {
+    id: 'ev-d5',
+    body: () => (
+      <>
+        <T>Evidence: Table D5, Finance's note on Preflight, and an engineer's view.</T>
+        <div className="dk-split2">
+          <div>
+            <Ev
+              title="Table D5. Agent pull requests in a week at the average team with self-driving turned on."
+              cols={['Step', 'Per team per week']}
+              rows={[
+                { c: ['Opened by PostHog\'s agents', '14'] },
+                { c: ['Looked at by an engineer within 7 days', '5'] },
+                { c: ['Merged', '3'] },
+                { c: ['Never looked at', '9'] },
+              ]}
+              note="Packet note: 2,250 paying teams have self-driving turned on: 900 small, 1,125 mid-size, and 225 large."
+              small
+            />
+            <div className="dk-qs wide"><Q id="Table C1 note" who="Finance, on Preflight">"The $30M assumes <mark>3,000 teams</mark> use Preflight and each spends $10,000 a year more with us."</Q></div>
+          </div>
+          <div className="dk-qs">
+            <Q id="E1.1" who="staff engineer at a 40-person AI startup">"Monday. 31 pull requests from the weekend. I merged four. … <mark>The rest I never opened.</mark>"</Q>
+            <Q id="E1.5" who="same engineer">"I'd want it to tell me what happens if I merge. <mark>I don't know if I'd believe a prediction, though.</mark>"</Q>
+          </div>
+        </div>
+        <Foot step="Evidence" src="Tables C1, D5; Appendix E, interview E1. Highlights are ours; the ellipsis marks words we left out" />
+      </>
+    ),
+    notes: { say: 'This backs up the Preflight slide: 3,000 teams in Finance\'s note versus 2,250 teams with self-driving on, and an engineer who says he would not trust a prediction.', qa: [] },
   },
   /* 11 */
   {
@@ -310,6 +442,46 @@ export const SLIDES = [
       </>
     ),
     notes: { say: 'Be upfront here. Budget Guard is the best bet in Finance\'s table once you account for how little it costs. Our reasons for Crew are the bigger upside and the new group of users, not that it wins on EV per dollar.', qa: [['Why not Budget Guard?', 'Its best case is $6M, and it only helps the 41% who are afraid of the bill. Crew\'s claimed upside is $14M and it brings in a new group of users. We also keep Budget Guard going with a small test.'], ['What is "EV per $1 spent"?', 'It is EV divided by expected spend, where expected spend is the build cost plus the pilot-pass chance times the launch cost. Preflight is 2.4 + 0.35 × 0.6 = 2.61. Crew is 2.0 + 0.6 × 0.8 = 2.48. Budget Guard is 0.9 + 0.9 × 0.3 = 1.17.']] },
+  },
+  /* Evidence: D1 + D2 + E3 */
+  {
+    id: 'ev-d1',
+    body: () => (
+      <>
+        <T>Evidence: Tables D1 and D2, and a free-plan founder.</T>
+        <div className="dk-split2">
+          <Ev
+            title="Table D1. New-team funnel, 40,000 teams signed up in one quarter, followed for 90 days."
+            cols={['Step', 'Teams', 'From step above']}
+            rows={[
+              { c: ['Signed up', '40,000', ''] },
+              { c: ['Sent a first event', '24,800', '62%'] },
+              { c: ['2 or more people looked at data in week 4', '9,920', '40%'] },
+              { c: ['Reached a free limit within 90 days', '2,480', '25%'], hl: true },
+              { c: ['Added a card', '992', '40%'], hl: true },
+            ]}
+            note="Packet note: of the 2,480 teams that reached a free limit, 1,488 did not add a card. Another 6,000 teams from earlier quarters are at a free limit today."
+            small
+          />
+          <Ev
+            title="Table D2. Main reason for not adding a card, 310 survey responses."
+            cols={['Reason', 'Responses', 'Share']}
+            rows={[
+              { c: ['Afraid of a bill I cannot predict', '127', '41%'], hl: true },
+              { c: ['Did not need more: turned the product off or waited for the monthly reset', '84', '27%'] },
+              { c: ['Needed someone else\'s approval to pay', '43', '14%'] },
+              { c: ['Moved to another tool', '31', '10%'] },
+              { c: ['Other', '25', '8%'] },
+            ]}
+            note="Packet note: the survey went to the 1,488 teams that reached a limit and did not add a card, and 310 responded (21 percent)."
+            small
+          />
+        </div>
+        <div className="dk-qs wide"><Q id="E3.5" who="solo founder on the free plan">"If I knew it was <mark>$50 a month, flat, I'd pay today</mark>."</Q></div>
+        <Foot step="Evidence" src="Appendix D, tables D1 and D2; Appendix E, interview E3. Highlights are ours" />
+      </>
+    ),
+    notes: { say: 'This is the evidence for the Budget Guard slide. The highlighted row in Table D2 is the 41% who are afraid of an unpredictable bill. 992 of 2,480 added a card, which is the 40% we compare a Budget Guard test against.', qa: [['Does the survey represent everyone?', 'Not necessarily. 310 of 1,488 responded, which is 21%, so we treat 41% as a rough share.']] },
   },
   /* 12 */
   {

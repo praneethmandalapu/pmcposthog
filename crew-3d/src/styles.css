@@ -440,3 +440,23 @@ body { background: radial-gradient(ellipse 90% 70% at 50% 42%, #2c2c30 0%, #1515
 .deck-notes p { margin: 0 0 12px; } .dn-h { font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.55); margin-bottom: 8px; font-weight: 700; } .dn-q { margin-bottom: 12px; } .dn-q b { display: block; margin-bottom: 3px; color: #fff; } .dn-q span { color: rgba(255,255,255,.82); }
 .deck ::selection { background: rgba(255,255,255,.3); }
 @media (prefers-reduced-motion: reduce) { .deck-slide { animation: none; } }
+
+/* ---------- evidence slides ---------- */
+.dk-ev { background: #EEEFE9; color: #151515; border-radius: 16px; padding: 18px 20px; box-shadow: 0 20px 50px rgba(0,0,0,.4); }
+.dk-ev-t { font-size: 15px; font-weight: 700; color: #55564f; margin-bottom: 10px; }
+.dk-ev table { width: 100%; border-collapse: collapse; font-size: 17px; font-variant-numeric: tabular-nums; }
+.dk-ev th { text-align: right; font-size: 13.5px; color: #6b6c63; font-weight: 700; padding: 6px 10px; border-bottom: 1px solid #c9cabf; }
+.dk-ev td { text-align: right; padding: 9px 10px; border-bottom: 1px solid #dcddd4; }
+.dk-ev th:first-child, .dk-ev td:first-child { text-align: left; }
+.dk-ev tr.hl td { background: #FFE8DD; font-weight: 700; } .dk-ev tr.hl td:first-child { box-shadow: inset 3px 0 0 transparent; }
+.dk-ev td.nt { text-align: left; color: #B33A00; font-weight: 700; font-size: 14px; white-space: nowrap; background: transparent !important; }
+.dk-ev.small table { font-size: 15px; } .dk-ev.small td { padding: 7px 8px; } .dk-ev.small th { font-size: 12.5px; }
+.dk-ev-note { margin: 12px 0 0; font-size: 14px; line-height: 1.45; color: #55564f; }
+.dk-qs { display: grid; gap: 14px; align-content: start; } .dk-qs.wide { margin-top: 14px; }
+.dk-qgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.dk-q { margin: 0; background: #EEEFE9; color: #151515; border-radius: 16px; padding: 16px 20px; box-shadow: 0 16px 40px rgba(0,0,0,.35); }
+.dk-q blockquote { margin: 0 0 10px; font-size: 19px; line-height: 1.4; font-weight: 500; }
+.dk-q mark { background: #FFD9C7; color: #151515; padding: 0 3px; border-radius: 4px; }
+.dk-q figcaption { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 13px; color: #6b6c63; }
+.dk-q figcaption b { color: #B33A00; font-weight: 800; letter-spacing: .02em; }
+.dk-q figcaption i { font-style: normal; font-weight: 700; font-size: 11.5px; text-transform: uppercase; letter-spacing: .08em; background: #151515; color: #fff; padding: 2px 9px; border-radius: 99px; }
